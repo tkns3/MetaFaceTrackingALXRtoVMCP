@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetaFaceTrackingALXRtoVMCP", "MetaFaceTrackingALXRtoVMCP\MetaFaceTrackingALXRtoVMCP.csproj", "{D37E1447-B986-4BB6-A49E-554E7C9E84FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D37E1447-B986-4BB6-A49E-554E7C9E84FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D37E1447-B986-4BB6-A49E-554E7C9E84FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D37E1447-B986-4BB6-A49E-554E7C9E84FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D37E1447-B986-4BB6-A49E-554E7C9E84FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {29E08AA8-56E9-4258-9DA6-7D326B77EF99}
+	EndGlobalSection
+EndGlobal

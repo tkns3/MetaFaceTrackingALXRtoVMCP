@@ -1,0 +1,78 @@
+﻿<Window x:Class="MetaFaceTrackingALXRtoVMCP.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MetaFaceTrackingALXRtoVMCP"
+        xmlns:convert="clr-namespace:MetaFaceTrackingALXRtoVMCP.Converters"
+        mc:Ignorable="d"
+        Title="MetaFaceTrackingALVRtoVMCP" Height="830" Width="930" Loaded="Window_Loaded">
+
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+
+    <Window.Resources>
+        <convert:StringListConverter x:Key="StringListConverter"/>
+    </Window.Resources>
+
+    <StackPanel Orientation="Horizontal">
+        <StackPanel Orientation="Vertical">
+            <Button Content="{Binding ButtonText}" HorizontalAlignment="Left" Margin="10,10" VerticalAlignment="Top" Click="StartButton_Click" FontSize="30" Height="80" Width="400"/>
+            <StackPanel Orientation="Horizontal">
+                <Button IsEnabled="{Binding IsStop}" Content="設定の読込" HorizontalAlignment="Left" Margin="10,10" VerticalAlignment="Top" Click="LoadButton_Click" Height="45" Width="190"/>
+                <Button IsEnabled="{Binding IsStop}" Content="設定の保存" HorizontalAlignment="Left" Margin="10,10" VerticalAlignment="Top" Click="SaveButton_Click" Height="45" Width="190"/>
+            </StackPanel>
+            <StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="現在の設定ファイル"/>
+                    <StackPanel Orientation="Vertical" Margin="8,-8,0,0">
+                        <Label Content="使用中の設定ファイルのフォルダとファイル名" HorizontalAlignment="Left" Foreground="#FF7D7D7D"/>
+                        <TextBox IsEnabled="False" Text="{Binding ConfigPath}" TextWrapping="NoWrap" AcceptsReturn="True" VerticalScrollBarVisibility="Hidden" Height="40" Width="400" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <Label Content="VMCP Send"/>
+                    <StackPanel Orientation="Vertical" Margin="8,-8,0,0">
+                        <Label Content="VMC Protocolの送信先IPアドレスとポート番号" Foreground="#FF7D7D7D"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox IsEnabled="{Binding IsStop}" Text="{Binding VmcpSendAddress}" TextWrapping="NoWrap" Height="20" Width="95" HorizontalAlignment="Left"/>
+                            <TextBox IsEnabled="{Binding IsStop}" Text="{Binding VmcpSendPort}" TextWrapping="NoWrap" Height="20" Width="55" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <Label Content="ALXR Connect"/>
+                    <StackPanel Orientation="Vertical" Margin="8,-8,0,0">
+                        <Label Content="ALXR Clientの接続先IPアドレスとポート番号" HorizontalAlignment="Left" Foreground="#FF7D7D7D"/>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox IsEnabled="{Binding IsStop}" Text="{Binding AlxrConnAddress}" TextWrapping="NoWrap" Height="20" Width="95" HorizontalAlignment="Left"/>
+                            <TextBox IsEnabled="{Binding IsStop}" Text="{Binding AlxrConnPort}" TextWrapping="NoWrap" Height="20" Width="55" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <Label Content="VRM File"/>
+                    <StackPanel Orientation="Vertical" Margin="8,-8,0,0">
+                        <Label Content="このVRMファイルに存在するBlendshapeすべてをVMC Protocolで送信する。" HorizontalAlignment="Left" Foreground="#FF7D7D7D"/>
+                        <Label Content="※Perfect Syncに関係がないBlendshapeの値は0で送信する。" Margin="0,-10,0,0" HorizontalAlignment="Left" Foreground="#FF7D7D7D"/>
+                        <Label Content="※No Send Blendshapesに指定しているBlendshapeは送信しない。" Margin="0,-10,0,0" HorizontalAlignment="Left" Foreground="#FF7D7D7D"/>
+                        <Label Content="※ファイルが存在しない場合、VRM標準とPerfect SyncのBlendshapeを送信する。" Margin="0,-10,0,0" HorizontalAlignment="Left" Foreground="#FF7D7D7D"/>
+                        <TextBox IsEnabled="{Binding IsStop}" Text="{Binding VrmFile}" ToolTip="{Binding VrmFile}" TextWrapping="NoWrap" Height="20" Width="400" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="0,8,0,0">
+                    <Label Content="No Send Blendshapes"/>
+                    <StackPanel Orientation="Vertical" Margin="8,-8,0,0">
+                        <Label Content="上書きしたくないBlendshape(例えば衣装の切り替え用など)を指定する。" HorizontalAlignment="Left" Foreground="#FF7D7D7D"/>
+                        <Label Content="1行に1つのBlendshapeの名前。" Margin="0,-10,0,0" HorizontalAlignment="Left" Foreground="#FF7D7D7D"/>
+                        <TextBox IsEnabled="{Binding IsStop}" Text="{Binding Path=NoSendBlendshapes,Converter={StaticResource StringListConverter}}" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible" Height="80" Width="400" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel>
+            <TextBlock Text="{Binding MainText}" Margin="10,10,0,0" TextWrapping="Wrap" FontFamily="MS Gothic" Height="900"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
