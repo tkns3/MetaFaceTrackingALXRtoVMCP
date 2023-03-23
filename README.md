@@ -32,6 +32,10 @@ alxr-client を起動するだけで VR 内の操作に大きな影響が出る�
 
 # 環境構築
 
+## Meta アカウント
+
+1. Meta アカウントを Oculus 開発者アカウントにします。 https://developer.oculus.com/sign-up/ 
+
 ## MetaFaceTrackingALXRtoVMCP
 
 1. .NET6.0のSDKまたはランタイムをインストールします。
@@ -53,6 +57,10 @@ alxr-client を起動するだけで VR 内の操作に大きな影響が出る�
 ## Quest Pro
 
 1. アイトラッキング、フェイストラッキングを有効にしてください。
+
+## Meta Quest アプリ (スマフォ)
+
+1. ヘッドセットの設定で開発者モードを ON に設定します。
 
 ## Oculus アプリ
 
